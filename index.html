@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Traverse.js test</title>
+    <script src="traverse.js"></script>
+  </head>
+  <body>
+
+    <script>
+      var a = { b: { c: [{ d: { "4" : "lol"}}] }};
+      console.log(a);
+      extend(a);
+      var result = a.traverse("b.c[ 0 ].d[ 4 ]", "not found");
+      console.log("correct? " + (result === "lol") );
+    </script>
+
+  </body>
+</html>
