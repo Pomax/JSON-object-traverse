@@ -27,25 +27,31 @@
   }
 
   function extend(obj) {
+    if(typeof obj !== "object") {
+      throw new Error("Cannot extend non-object in traverse.js");
+    }
     obj.traverse = function(route, fallback) {
+      if(!route) {
+        throw new Error("No route passed for object traversal.");
+      }
       return traverse(obj, route, fallback);
     };
   };
 
   // AMD style modules
-  if(typeof define !== "undefined") {
+  if(typeof define === "function" && define.amd) {
     define(function() {
       return extend;
     });
   }
 
   // Node.js
-  else if (typeof module !== "undefined" &&  module.exports) {
+  else if (typeof module === "object" &&  module.exports) {
     module.exports = extend;
   }
 
   // browser global scope
-  else if (!window.extend) {
+  else if (typeof window === "object" && !window.extend) {
     window.extend = extend;
   }
 
