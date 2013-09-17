@@ -1,6 +1,7 @@
 {
   "name": "JSON-object-traverse",
   "version": "0.0.1",
+  "main": "traverse.js",
   "repository" : {
     "type" : "git",
     "url" : "http://github.com/Pomax/JSON-object-traverse.git"
