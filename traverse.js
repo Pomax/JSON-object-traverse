@@ -18,6 +18,7 @@
         obj = obj[step];
         if(index) {
           obj = obj[index];
+          index = false;
         }
       } catch (e) {
         return fallback;
